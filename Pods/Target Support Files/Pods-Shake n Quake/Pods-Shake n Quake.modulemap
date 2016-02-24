@@ -1,0 +1,6 @@
+framework module Pods_Shake_n_Quake {
+  umbrella header "Pods-Shake n Quake-umbrella.h"
+
+  export *
+  module * { export * }
+}
