@@ -68,8 +68,6 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
         self.refreshDateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
         self.refreshDateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -120,6 +118,7 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
                 }
                 
                 self.animateTable()
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
             } else {
                 //TO DO: Display Alert View Controller
@@ -157,9 +156,10 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
     }
     
     func setDate() {
-        let today = NSDate()
+//        let today = NSDate()
+        let lastWeek = NSCalendar.currentCalendar().dateByAddingUnit(.WeekOfYear, value: -1, toDate: NSDate(), options: NSCalendarOptions())!
         
-        let lastWeek = today.dateByAddingTimeInterval(-1209600.0)
+        //let lastWeek = today.dateByAddingTimeInterval(-1209600.0)
         
         let dateFormatter = NSDateFormatter()
 
