@@ -48,17 +48,13 @@ class FilterMagTableViewController : UITableViewController {
         })
     }
     
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("magnitudeFilterCell", forIndexPath: indexPath)
-//        
-//        // Check if the cell is the selected cell
-//        if indexPath.row == checkmarkIndex {
-//            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-//        } else {
-//            cell.accessoryType = UITableViewCellAccessoryType.None
-//        }
-//        return cell
-//    }
+    /*
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("magnitudeFilterCell", forIndexPath: indexPath)
+        
+        return cell
+    }
+    */
     
     // MARK: - Navigation
 
@@ -67,6 +63,5 @@ class FilterMagTableViewController : UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-
     }*/
 }

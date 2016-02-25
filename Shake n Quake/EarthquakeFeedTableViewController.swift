@@ -25,12 +25,12 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
     
             Filter
             - Magnitude (> 2.5, > 3.0, etc.)
-            - Date (Today, week, month)
+            - Date (Today, week)
             - Around Me (Toggle on or off)
     */
     
     var urlStartTime = ""
-    var minimumMag = "2.0"
+    var minimumMag = "4.0"
     
     var todaysDate = ""
     var weekData = ""
@@ -38,8 +38,7 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
 
     var quakeFeedURL = ""
     
-    
-    //Pull to refresh
+    //Pull to Refresh
     var spinner = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
     var loadingView: UIView = UIView()
     var refreshDateFormatter = NSDateFormatter()
@@ -60,7 +59,6 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
-        
         //Pull to refresh setup
         self.refreshController.attributedTitle = NSAttributedString(string: "Pull to Refresh")
         self.refreshController.addTarget(self, action: "fetchQuakeFeed", forControlEvents: UIControlEvents.ValueChanged);
@@ -77,6 +75,7 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
     
     func fetchQuakeFeed() {
         quakes.removeAll()
+
         quakeFeedURL = "http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=" + urlStartTime + "&minmagnitude=" + minimumMag
         
         showActivityIndicator()
@@ -105,9 +104,11 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
                     self.quakes.append(quake)
                 }
                 
-                self.quakes.removeFirst()
-                
                 self.hideActivityIndicator()
+                
+                if !(self.quakes.count > 0) {
+                    self.displayAlert("No Earthquakes Found", message: "We were unable to find any Earthquakes with the Current Filters.")
+                }
                 
                 // update "last updated" title for refresh control
                 let now = NSDate()
@@ -121,11 +122,27 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
             } else {
-                //TO DO: Display Alert View Controller
-                
-                print("Error")
+                self.displayAlert("Unable to find earthquakes at this time", message: "Unable to retriveve earthquakes at this time.  Please ensure you are conencted to the internet and try again.")
             }
         }
+    }
+
+    func displayAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        if title == "No Earthquakes Found" {
+            let noAction = UIAlertAction(title: "No", style: .Default, handler: nil)
+            let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
+                self.performSegueWithIdentifier("showFilterOptions", sender: self)
+            })
+            alertController.addAction(noAction)
+            alertController.addAction(yesAction)
+        } else {
+            let closeAction = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+            alertController.addAction(closeAction)
+        }
+        
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     func showActivityIndicator() {
@@ -133,7 +150,7 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
             self.loadingView = UIView()
             self.loadingView.frame = CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0)
             self.loadingView.center = self.view.center
-            self.loadingView.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1.0)//: "#444444")
+            self.loadingView.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1.0)
             self.loadingView.alpha = 0.7
             self.loadingView.clipsToBounds = true
             self.loadingView.layer.cornerRadius = 10
@@ -156,10 +173,8 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
     }
     
     func setDate() {
-//        let today = NSDate()
+
         let lastWeek = NSCalendar.currentCalendar().dateByAddingUnit(.WeekOfYear, value: -1, toDate: NSDate(), options: NSCalendarOptions())!
-        
-        //let lastWeek = today.dateByAddingTimeInterval(-1209600.0)
         
         let dateFormatter = NSDateFormatter()
 
@@ -168,7 +183,6 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
         let formattedDate = dateFormatter.stringFromDate(lastWeek)
         
         urlStartTime = formattedDate
-        print(urlStartTime)
     }
     
     // MARK: - Table view data source
@@ -213,34 +227,6 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
             index += 1
         }
     }
-    
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    */
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
     
     // MARK: - Navigation
     

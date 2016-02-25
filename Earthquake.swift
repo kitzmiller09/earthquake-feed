@@ -25,7 +25,7 @@ class Earthquake: NSObject {
         
         var formattedDate = dateFormatter.stringFromDate(date)
         
-        //Remove 0's from the front fo the date
+        //Remove 0's from the front of the date
         if formattedDate.characters.first == "0" {
 
             formattedDate = formattedDate.substringFromIndex(formattedDate.startIndex.advancedBy(1))

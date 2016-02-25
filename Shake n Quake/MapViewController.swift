@@ -31,7 +31,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let long = Double(quake.geometry["longitude"]!)
             let lat = Double(quake.geometry["latitude"]!)
             let location = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            let span = MKCoordinateSpanMake(75, 75)
+            let span = MKCoordinateSpanMake(55, 55)
 
             let region = MKCoordinateRegion(center: location, span: span)
             

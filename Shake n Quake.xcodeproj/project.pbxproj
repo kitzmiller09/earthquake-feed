@@ -58,7 +58,7 @@
 		FF36C9EB1C57CB0300FB5D30 /* Shake n QuakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shake n QuakeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF36C9EF1C57CB0300FB5D30 /* Shake_n_QuakeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shake_n_QuakeUITests.swift; sourceTree = "<group>"; };
 		FF36C9F11C57CB0300FB5D30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF36C9FD1C57CBD600FB5D30 /* EarthquakeFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthquakeFeedTableViewController.swift; sourceTree = "<group>"; };
+		FF36C9FD1C57CBD600FB5D30 /* EarthquakeFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthquakeFeedTableViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		FF36C9FF1C57CC2000FB5D30 /* EarthQuakeFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthQuakeFeedTableViewCell.swift; sourceTree = "<group>"; };
 		FF36CA001C57CC2000FB5D30 /* EarthQuakeFeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EarthQuakeFeedTableViewCell.xib; sourceTree = "<group>"; };
 		FF36CA031C57CC3100FB5D30 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
