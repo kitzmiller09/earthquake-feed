@@ -65,7 +65,7 @@
                 <outlet property="locationLabel" destination="N8E-Mk-3to" id="JWn-MP-aqd"/>
                 <outlet property="magnitudeLabel" destination="1K4-8Y-d8O" id="mcD-uX-Fmn"/>
             </connections>
-            <point key="canvasLocation" x="513" y="565"/>
+            <point key="canvasLocation" x="495" y="709"/>
         </tableViewCell>
     </objects>
 </document>
