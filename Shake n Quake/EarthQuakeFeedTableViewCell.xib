@@ -3,8 +3,18 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </mutableArray>
+        <mutableArray key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+            <string>OpenSans-Semibold</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -15,55 +25,68 @@
                 <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1K4-8Y-d8O">
-                        <rect key="frame" x="237" y="18" width="50" height="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Lynchburg, VA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8E-Mk-3to">
+                        <rect key="frame" x="66" y="8" width="221" height="21"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="width" priority="250" constant="50" id="2WJ-z1-grv"/>
-                            <constraint firstAttribute="height" priority="250" constant="24" id="5FU-b4-ajs"/>
+                            <constraint firstAttribute="width" priority="250" constant="221" id="z2t-nL-ZSd"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
+                        <color key="textColor" red="0.98170508899999998" green="1" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lynchburg, VA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8E-Mk-3to">
-                        <rect key="frame" x="8" y="8" width="221" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSF-cF-x5x">
+                        <rect key="frame" x="0.0" y="0.0" width="59" height="59"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" red="0.1450980392" green="0.47450980390000003" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" priority="750" constant="59" id="Dbh-mX-laE"/>
+                            <constraint firstAttribute="height" constant="59" id="USu-Os-q9p"/>
+                            <constraint firstAttribute="width" constant="59" id="Ylk-F2-s0U"/>
+                            <constraint firstAttribute="width" secondItem="BSF-cF-x5x" secondAttribute="height" multiplier="1:1" id="oi8-Kf-IeD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="20"/>
+                        <color key="textColor" red="0.98170508899999998" green="1" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="USu-Os-q9p"/>
+                                <exclude reference="Ylk-F2-s0U"/>
+                            </mask>
+                        </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/15 at 1:45 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIA-6P-PS4">
-                        <rect key="frame" x="8" y="30" width="117" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1/15 at 1:45 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIA-6P-PS4">
+                        <rect key="frame" x="66" y="31" width="221" height="21"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="2L7-F1-01f"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="1K4-8Y-d8O" firstAttribute="leading" secondItem="N8E-Mk-3to" secondAttribute="trailing" constant="8" id="5m5-lw-cLG"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="1K4-8Y-d8O" secondAttribute="trailing" constant="-8" id="Dw2-GC-oMu"/>
-                    <constraint firstItem="1K4-8Y-d8O" firstAttribute="leading" secondItem="N8E-Mk-3to" secondAttribute="trailing" constant="-12" id="HCA-q5-rjM"/>
-                    <constraint firstAttribute="topMargin" secondItem="N8E-Mk-3to" secondAttribute="top" id="QHy-G7-fbq"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="N8E-Mk-3to" secondAttribute="leading" id="Xqs-rh-cux"/>
-                    <constraint firstItem="TIA-6P-PS4" firstAttribute="top" secondItem="N8E-Mk-3to" secondAttribute="bottom" constant="1" id="a2E-LD-oYp"/>
-                    <constraint firstItem="TIA-6P-PS4" firstAttribute="leading" secondItem="N8E-Mk-3to" secondAttribute="leading" id="kwB-wI-UhQ"/>
-                    <constraint firstItem="1K4-8Y-d8O" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vUX-Ds-uJR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BSF-cF-x5x" secondAttribute="bottom" constant="-8" id="3UT-gi-gVg"/>
+                    <constraint firstItem="BSF-cF-x5x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="Hqb-iS-S7S"/>
+                    <constraint firstItem="BSF-cF-x5x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="RfU-fJ-HmR"/>
+                    <constraint firstAttribute="topMargin" secondItem="N8E-Mk-3to" secondAttribute="top" id="bv5-OC-YC0"/>
+                    <constraint firstItem="TIA-6P-PS4" firstAttribute="top" secondItem="N8E-Mk-3to" secondAttribute="bottom" constant="2" id="eYw-dD-M2y"/>
+                    <constraint firstItem="TIA-6P-PS4" firstAttribute="leading" secondItem="N8E-Mk-3to" secondAttribute="leading" id="vy3-9H-KnB"/>
+                    <constraint firstItem="TIA-6P-PS4" firstAttribute="width" secondItem="N8E-Mk-3to" secondAttribute="width" id="wwZ-GX-kz0"/>
+                    <constraint firstItem="N8E-Mk-3to" firstAttribute="leading" secondItem="BSF-cF-x5x" secondAttribute="trailing" constant="7" id="xAd-tn-grP"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="HCA-q5-rjM"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <animations/>
-            <color key="backgroundColor" red="0.98039215686274506" green="1" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.32941176470588235" green="0.63921568627450975" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="N8E-Mk-3to" secondAttribute="trailing" priority="750" constant="33" id="ZeR-zQ-p3e"/>
+            </constraints>
             <connections>
                 <outlet property="dateTimeLabel" destination="TIA-6P-PS4" id="die-6l-GBj"/>
                 <outlet property="locationLabel" destination="N8E-Mk-3to" id="JWn-MP-aqd"/>
-                <outlet property="magnitudeLabel" destination="1K4-8Y-d8O" id="mcD-uX-Fmn"/>
+                <outlet property="magnitudeLabel" destination="BSF-cF-x5x" id="FnH-to-5LE"/>
             </connections>
             <point key="canvasLocation" x="495" y="709"/>
         </tableViewCell>

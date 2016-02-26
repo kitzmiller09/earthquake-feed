@@ -30,7 +30,7 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
     */
     
     var urlStartTime = ""
-    var minimumMag = "4.0"
+    var minimumMag = "5.0"
     
     var todaysDate = ""
     var weekData = ""
@@ -94,6 +94,7 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
                     
                     quake.locationName = quakeProperties["place"].stringValue;
                     quake.magnitude = quakeProperties["mag"].floatValue;
+
                     quake.time = quakeProperties["time"].doubleValue;
                     
                     //Set Latitude, Longitude, and Depth
@@ -198,6 +199,10 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("earthquakeCell", forIndexPath: indexPath) as! EarthQuakeFeedTableViewCell
         
+        let disclosureImage = UIImage(named: "disclosure")
+        let disclosureView = UIImageView(image: disclosureImage)
+        disclosureView.sizeThatFits(CGSize(width: 10, height: 20))
+        cell.accessoryView = disclosureView
         cell.magnitudeLabel.text = String(quakes[indexPath.row].magnitude)
         cell.dateTimeLabel.text = String(quakes[indexPath.row].getFormattedDate())
         cell.locationLabel.text = String(quakes[indexPath.row].getFormattedLocation())
