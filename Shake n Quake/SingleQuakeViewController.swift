@@ -35,6 +35,23 @@ class SingleQuakeViewController: UIViewController, MKMapViewDelegate {
 //        let long = Double(quake.geometry["longitude"]!)
 //        let lat = Double(quake.geometry["latitude"]!)
         coordinatesLabel.text = ""
+        let long = Double(quake.geometry["longitude"]!)
+        let lat = Double(quake.geometry["latitude"]!)
+        let location = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        let span = MKCoordinateSpanMake(55, 55)
+        
+        let region = MKCoordinateRegion(center: location, span: span)
+        
+        mapView.setRegion(region, animated: false)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location
+        annotation.title = "\(quake.locationName)"
+//        annotation.subtitle = "Magnitude: \(quake.magnitude)"
+        
+        mapView.addAnnotation(annotation)
+        
+        self.navigationItem.title = quake.getFormattedLocation()
         
     }
 
