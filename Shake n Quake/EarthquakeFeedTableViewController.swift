@@ -35,7 +35,9 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
     var todaysDate = ""
     var weekData = ""
     var monthDate = ""
-
+    
+    var selectedIndex = 0;
+    
     var quakeFeedURL = ""
     
     //Pull to Refresh
@@ -61,7 +63,7 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
         
         //Pull to refresh setup
         self.refreshController.attributedTitle = NSAttributedString(string: "Pull to Refresh")
-        self.refreshController.addTarget(self, action: "fetchQuakeFeed", forControlEvents: UIControlEvents.ValueChanged);
+        self.refreshController.addTarget(self, action: #selector(EarthquakeFeedTableViewController.fetchQuakeFeed), forControlEvents: UIControlEvents.ValueChanged);
         self.tableView?.addSubview(refreshController)
         self.refreshDateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
         self.refreshDateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
@@ -210,6 +212,13 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        self.selectedIndex = indexPath.row
+        print(selectedIndex)
+        self.performSegueWithIdentifier("cellTapped", sender: self)
+    }
+    
     func animateTable() {
         tableView.reloadData()
         
@@ -246,6 +255,9 @@ class EarthquakeFeedTableViewController: UIViewController, UITableViewDelegate, 
         } else if segue.identifier == "showFilterOptions" {
             let destinationController = segue.destinationViewController as! FilterSubmissionViewController
             destinationController.minMag = self.minimumMag
+        } else if segue.identifier == "cellTapped" {
+            let destinationController = segue.destinationViewController as! SingleQuakeViewController
+            destinationController.quake = quakes[selectedIndex]
         }
         
     }
